@@ -4,11 +4,18 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="stock_title">Stock App</string>
+    <string name="TVCompanyNames"><![CDATA[Loading....]]></string>
+    <string name="TVPrices"><![CDATA[Loading....]]></string>
     <string name="TVPortfolio"><![CDATA[<< PORTFOLIO >>]]></string>
     <string name="TVTotalWorth"><![CDATA[<< TOTAL WORTH >>]]></string>
     <string name="TVWeeklyProfitLoss"><![CDATA[<< WEEKLY + / - >>]]></string>
     <string name="btnRight">>></string>
     <string name="btnLeft"><![CDATA[<<]]></string>
+    
+    
+
+    
+
     
     
 

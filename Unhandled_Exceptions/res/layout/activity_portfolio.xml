@@ -11,10 +11,10 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="85dp"
-        android:textColor="@android:color/white" 
         android:background="#000000"
-        android:textSize="45dp"
-        android:text="@string/btnRight" />
+        android:text="@string/btnRight"
+        android:textColor="@android:color/white"
+        android:textSize="45dp" />
 
     <Button
         android:id="@+id/btnLeft"
@@ -23,10 +23,10 @@
         android:layout_alignBaseline="@+id/btnRight"
         android:layout_alignBottom="@+id/btnRight"
         android:layout_alignParentLeft="true"
+        android:background="#000000"
+        android:text="@string/btnLeft"
         android:textColor="@android:color/white"
-		android:background="#000000"
-		android:textSize="45dp"
-        android:text="@string/btnLeft" />
+        android:textSize="45dp" />
 
     <TextView
         android:id="@+id/TVPortfolio"
@@ -39,5 +39,27 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/white"
         android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/TVCompanyNames"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TVPortfolio"
+        android:layout_below="@+id/TVPortfolio"
+        android:layout_marginTop="110dp"
+        android:text="@string/TVCompanyNames"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/TVPrices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TVCompanyNames"
+        android:layout_alignBottom="@+id/TVCompanyNames"
+        android:layout_alignRight="@+id/TVPortfolio"
+        android:text="@string/TVPrices"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

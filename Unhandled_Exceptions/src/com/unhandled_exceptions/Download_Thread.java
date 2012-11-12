@@ -89,7 +89,7 @@ protected String doInBackground(String... sUrl) {
 @Override
 protected void onPostExecute(String success) {
 
-	//((Portfolio) ourContext).updateScreen(success);
+	((Portfolio) ourContext).updateScreen(success);
 	
 	   
 }
