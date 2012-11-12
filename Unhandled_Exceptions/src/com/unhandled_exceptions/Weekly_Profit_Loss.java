@@ -7,7 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 
 
-public class Total_Worth extends Activity {
+public class Weekly_Profit_Loss extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
