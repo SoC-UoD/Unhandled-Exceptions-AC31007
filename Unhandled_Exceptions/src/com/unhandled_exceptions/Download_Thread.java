@@ -95,4 +95,10 @@ protected void onPostExecute(String success) {
 }
 
 
+public static int add() {
+	// TODO Auto-generated method stub
+	return 6;
+}
+
+
 }
