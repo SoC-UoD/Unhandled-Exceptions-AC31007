@@ -4,6 +4,7 @@ package com.unhandled_exceptions;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Calendar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -15,10 +16,17 @@ import android.content.Intent;
 
 public class Portfolio extends Activity {
 	
-	
-	String[] companies =  {"BP", "EXPERIAN", "HSBC", "MARKS & SPENCER", "SMITH & NEPHEW"};
+	public static String[] historicalWorth;
+	String[] companies =  {"BP", "EXPERIAN", "HSBC", "MARKS&SPENCER", "SMITH&NEPHEW"};
+	int[] stockNos = {192, 258, 343, 458, 1219};
 	Dialog d;
-	static int ran;
+	public static String vaildData;
+	public static int date, month , year, hour, min, sec;
+	Calendar cal;
+	
+
+	public Stock_Object[] stockObjects;
+
 	
 
     @Override
@@ -26,19 +34,23 @@ public class Portfolio extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_portfolio);
         
-
+        
+        
         
         //execute this when the download must be fired
  		Download_Thread downloadFile = new Download_Thread(this);
  		downloadFile.execute("http://finance.yahoo.com/d/quotes.csv?s=BP.L+EXPN.L+HSBA.L+MKS.L+SN.L&f=l9");
         
+ 		
+ 		
+ 		
  		//Download dialog starts
  		d = new Dialog(this);
  		d.setTitle("Downloading Data");
  		d.show();
+
  		
- 		ran = 6;
-       
+ 		
         
         //BUTTON CONTROL STARTS HERE................
         
@@ -56,6 +68,7 @@ public class Portfolio extends Activity {
 			}
         	
         });
+        
         
         
         
@@ -78,9 +91,23 @@ public class Portfolio extends Activity {
     
     
     
-    public void updateScreen(String success){
+    public void updateScreen(String success, String [] histWorth){
+    	
+    	creatStockObjects();
+    	
+    	historicalWorth = histWorth; 
     	
     	d.dismiss();
+    	
+    	cal = Calendar.getInstance();
+    	date = cal.get(Calendar.DATE);
+        month = cal.get(Calendar.MONTH);
+        year = cal.get(Calendar.YEAR);
+        hour = cal.get(Calendar.HOUR);
+        min = cal.get(Calendar.MINUTE);
+        sec = cal.get(Calendar.SECOND); 
+    	
+    	vaildData = success;
     	
     	TextView companyNames = new TextView(this);
     	companyNames=(TextView)findViewById(R.id.TVCompanyNames);
@@ -88,55 +115,76 @@ public class Portfolio extends Activity {
     	TextView stockPrices = new TextView(this);
     	stockPrices=(TextView)findViewById(R.id.TVPrices);
     	
-    	StringBuilder company = new StringBuilder();
-  		
-  		for(int i = 0; i < companies.length;i++)
-  		{
-  			company = company.append(companies[i]);
-  			company = company.append('\n');
-  		}
+    	TextView TVMessage = new TextView(this);
+    	TVMessage=(TextView)findViewById(R.id.TVMessage);
     	
-  		companyNames.setText(company);
+    	TVMessage.setText(vaildData + " " + date + "/" + month + "/" + year + " " + hour + ":" + min + ":" + sec);
+    	
+    	
+  		companyNames.setText("BP"  + '\n' +  "EXPERIAN" + '\n' +  "HSBC" + '\n' +  "MARKS & SPENCER" + '\n' +  "SMITH & NEPHEW");
   		
   		
   		
   		
   		StringBuilder prices = new StringBuilder();
 
-  		BufferedReader br;
+  		for (int i = 0; i < 5; i++)
+  		{
+  			prices.append("£");
+	    	prices.append(stockObjects[i].getSharePrice());
+	    	prices.append('\n');
+  		}
+  		
+  		
+  		stockPrices.setText(prices);
+  		
+	
+    	
+    }
+    
+    
+    public void creatStockObjects() {
+    	
+    	stockObjects = new Stock_Object[5];
+    	
+    	for(int i = 0; i < 5; i++)
+    	{
+
+    		stockObjects[i].setName(companies[i]);
+    		stockObjects[i].setStockNo(stockNos[i]);   				
+    				
+    	}
+    	
+    	int x = 0;
+    	
+    	BufferedReader br;
   		try {
   			br = new BufferedReader(new FileReader("/sdcard/Quotes.csv"));
   			
   			String line;
-
+  			
   		    while ((line = br.readLine()) != null) {
-  		    	prices.append(line);
-  		    	prices.append('\n');
+  		    	stockObjects[x].setSharePrice(line);
+  		    	x++;
+  		    	
   		    }
   		    
   		   br.close();
   		    
   			
   		} catch (IOException e) {
-  			// TODO Auto-generated catch block
+  			System.out.println("Something not working");
   			e.printStackTrace();
   		}
-  		
-  		
-  		stockPrices.setText(prices);
-  		
-  		
-  		
-	
+    	
     	
     }
-
-
-
-	public int hasItRan() {
-		// TODO Auto-generated method stub
-		return ran;
-	}
+    
+  
+    
+    
+    
+    
    
     
     
