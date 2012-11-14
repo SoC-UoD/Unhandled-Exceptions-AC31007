@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+    
+    
+    
+    <Button
+        android:id="@+id/btnRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="85dp"
+        android:textColor="@android:color/white" 
+        android:background="#000000"
+        android:textSize="45dp"
+        android:text="@string/btnRight" />
+
+    <Button
+        android:id="@+id/btnLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnRight"
+        android:layout_alignBottom="@+id/btnRight"
+        android:layout_alignParentLeft="true"
+        android:textColor="@android:color/white"
+		android:background="#000000"
+		android:textSize="45dp"
+        android:text="@string/btnLeft" />
+
+    <TextView
+        android:id="@+id/TVTotalWorth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="@string/TVWeeklyProfitLoss"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        android:textSize="33dp" />
+
+    <TextView
+        android:id="@+id/TVProfitLoss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TVTotalWorth"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="98dp"
+        android:text="@string/TVProfitLoss"
+        android:textColor="@android:color/white"
+        android:textSize="29dp" />
+
+    <TextView
+        android:id="@+id/TVMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/TVMessage"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>
