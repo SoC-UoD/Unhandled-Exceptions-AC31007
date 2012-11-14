@@ -1,7 +1,7 @@
 package com.unhandled_exceptions.test;
 
 import android.test.AndroidTestCase;
-import com.unhandled_exceptions.Download_Thread;
+//import com.unhandled_exceptions.Download_Thread;
 import com.unhandled_exceptions.Portfolio;
 
 public class Download_ThreadTest extends AndroidTestCase {
@@ -12,7 +12,7 @@ public class Download_ThreadTest extends AndroidTestCase {
 	{
 		super();
 		
-		assertEquals(6,Download_Thread.add());
+		
 		
 		
 		
@@ -26,9 +26,11 @@ public class Download_ThreadTest extends AndroidTestCase {
 	protected void setup() throws Exception{
 		super.setUp();
 		
+		Portfolio port = new Portfolio();
 		
 		
-		;
+		
+		assertEquals(6,port.hasItRan());
 	}
 	
 	

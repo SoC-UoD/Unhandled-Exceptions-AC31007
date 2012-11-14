@@ -18,6 +18,7 @@ public class Portfolio extends Activity {
 	
 	String[] companies =  {"BP", "EXPERIAN", "HSBC", "MARKS & SPENCER", "SMITH & NEPHEW"};
 	Dialog d;
+	static int ran;
 	
 
     @Override
@@ -35,6 +36,8 @@ public class Portfolio extends Activity {
  		d = new Dialog(this);
  		d.setTitle("Downloading Data");
  		d.show();
+ 		
+ 		ran = 6;
        
         
         //BUTTON CONTROL STARTS HERE................
@@ -122,9 +125,18 @@ public class Portfolio extends Activity {
   		
   		stockPrices.setText(prices);
   		
+  		
+  		
 	
     	
     }
+
+
+
+	public int hasItRan() {
+		// TODO Auto-generated method stub
+		return ran;
+	}
    
     
     
