@@ -16,7 +16,7 @@ import android.content.Context;
 //that way, you can easily modify the UI thread from here
 public class Download_Thread extends AsyncTask<String, Integer, String> {
 
-	String success;
+	public static String success;
 	public Context ourContext;
 	
 	public Portfolio activty;
