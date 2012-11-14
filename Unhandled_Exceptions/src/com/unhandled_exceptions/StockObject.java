@@ -18,7 +18,7 @@ public class StockObject {
 		return 6;
 	}
 
-	public static String getName() {
+	public String getName() {
 		
 		return name;
 	}
