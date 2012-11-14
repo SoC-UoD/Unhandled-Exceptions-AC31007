@@ -6,9 +6,10 @@ import android.test.AndroidTestCase;
 
 public class StockObjectTest extends AndroidTestCase{
 
-	public StockObjectTest(){
-		super();
-		
-		assertEquals(6,StockObject.add());
+	
+	
+	public void checkGetName()throws Throwable{
+	
+	assertEquals("BP", StockObject.getName());
 	}
 }
